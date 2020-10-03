@@ -190,7 +190,7 @@ void RobotPositionController::handleTelemetry(char *data){
 //    qDebug() << "telemetry handled";
     delete positionInfo;
     positionInfo = (TelemetryPacket*) data;
-    for (u_int8_t i = 0; i < positionInfo->NUMBER_OF_MOTORS; ++i) {
+    for (size_t i = 0; i < positionInfo->NUMBER_OF_MOTORS; ++i) {
         if (!hasPositionData(positionInfo->M_DATA[i].DEVICE_ID)) continue;
         int speed = 10000;
         switch (positionInfo->M_DATA[i].DEVICE_ID) {
